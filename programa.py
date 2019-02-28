@@ -43,5 +43,6 @@ FILENAME = str(now.strftime("%Y_%m_%d_%H_%M") + "_log_" + "bogohack" + "." + EXT
 FOLDER = "Resultados/"
 print(FILENAME)
 
+
 monitor()
 			
