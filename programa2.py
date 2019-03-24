@@ -4,7 +4,7 @@ from datetime import datetime
 
 now = datetime.now()
 headers = 'Hotbed, Extruder, Motor X, Motor Y, Motor Z1, Motor Z2, Voltaje, Corriente, Potencia electrica (W), Potencia electrica(KW/h), Objeto 3D (Descripcion)'
-NombreImpresion = "Clase impresion 3D Vivelab"
+NombreImpresion = "prueba_texto_Vivelab"
 
 def monitor():
 
