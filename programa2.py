@@ -3,13 +3,12 @@ import sys, os, serial, threading
 from datetime import datetime
 
 now = datetime.now()
-headers = 'Hotbed, Extruder, Motor X, Motor Y, Motor Z1, Motor Z2, Voltaje, Corriente, Potencia electrica (W), Potencia electrica(KW/h), Objeto 3D (Descripcion)'
-NombreImpresion = "prueba_texto_Vivelab"
+headers = 'MQ-2, MQ-3, MQ-4, MQ-5, MQ-6, MQ-7, MQ-8, MQ-9'
+NombreImpresion = "Calibracion sensores MQ"
 
 def monitor():
 
-    ser = serial.Serial(COMPORT, BAUDRATE, timeout=0)
-    
+    ser = serial.Serial(COMPORT, BAUDRATE, timeout=100)
     printFile("SEP = ," + CARRIAGE_RETURN)
     print(headers)
     printFile(headers)
@@ -24,14 +23,7 @@ def monitor():
 
 
 def readData(ser):
-    buffer = ""
-    while True:
-        oneByte = ser.read(1)
-        if oneByte == b"\r":    #method should returns bytes
-            return buffer.split(":")[1].strip()
-        else:
-            buffer += oneByte.decode("ascii")
-
+    return ser.readline().decode("utf-8").strip()
 def printFile(line):
     text_file = open(FOLDER + FILENAME, "a")
     text_file.write(line)
@@ -39,7 +31,7 @@ def printFile(line):
 
 print("Start Serial Monitor")
 
-COMPORT = "COM5"
+COMPORT = "COM7"
 BAUDRATE = 115200
 EXTENSION = "csv"
 CARRIAGE_RETURN = "\r"
@@ -49,4 +41,3 @@ print(FILENAME)
 
 
 monitor()
-			
