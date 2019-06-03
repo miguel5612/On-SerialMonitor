@@ -35,7 +35,7 @@ def printFile(line):
 
 print("Start Serial Monitor")
 
-COMPORT = "COM5"
+COMPORT = "COM3"
 BAUDRATE = 115200
 EXTENSION = "csv"
 CARRIAGE_RETURN = "\r"
